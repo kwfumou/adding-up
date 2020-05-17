@@ -33,10 +33,13 @@ rl.on("close", () => {
   }
   const rankingArray = Array.from(prefectureDataMap);
   rankingArray.sort((a, b) => {
-    return b[1].change - a[1].change;
+    return a[1].change - b[1].change;
   });
-  const rankingStirng = rankingArray.map(([key, value]) => {
+  const rankingStirng = rankingArray.map(([key, value], i) => {
     return (
+      i +
+      1 +
+      "位 " +
       key +
       ": " +
       value.popu10 +
